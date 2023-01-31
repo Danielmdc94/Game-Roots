@@ -17,7 +17,6 @@ void Engine::input()
     {
         player.stopLeft();
     }
- 
     if (Keyboard::isKeyPressed(Keyboard::D))
     {
         player.moveRight();

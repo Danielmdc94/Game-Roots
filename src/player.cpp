@@ -8,13 +8,11 @@ Player::Player()
     // Associate a texture with the sprite
     texture.loadFromFile("assets/player.jpg");
     sprite.setTexture(texture);     
-    
     sprite.setScale(0.5, 0.5);
 
     // Set player's starting position
     position.x = 500;
-    position.y = 600;
- 
+    position.y = 700;
 }
  
 // Make the private spite available to the draw() function
