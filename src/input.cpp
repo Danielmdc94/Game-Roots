@@ -5,7 +5,7 @@ void Engine::input()
     // Handle the player quitting
     if (Keyboard::isKeyPressed(Keyboard::Escape))
     {
-        Win.close();
+        window.close();
     }
 
     // Handle the player moving

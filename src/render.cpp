@@ -3,10 +3,10 @@
 void Engine::render()
 {
     // Rub out the last frame
-    Win.clear(Color::Black);
+    window.clear(Color::Black);
 
     // Draw the background
-    Win.draw(BackgroundSprite);
+    window.draw(backgroundSprite);
 
 	// Render title text
 	Text text;
@@ -14,15 +14,15 @@ void Engine::render()
 	text.setString("ROOTS");
 	text.setCharacterSize(256);
 	text.setFillColor(Color:: Black);
-	text.setPosition(Win.getSize().x * 0.5 - 128 * 3 +4,
-		Win.getSize().y * 0.5 - 252);
-	Win.draw(text);
+	text.setPosition(window.getSize().x * 0.5 - 128 * 3 +4,
+		window.getSize().y * 0.5 - 252);
+	window.draw(text);
 	text.setFillColor(Color:: Green);
 	text.setOutlineColor(Color:: Black);
-	text.setPosition(Win.getSize().x * 0.5 - 128 * 3,
-		Win.getSize().y * 0.5 - 256);
-	Win.draw(text);
-	Win.draw(player.getSprite());
+	text.setPosition(window.getSize().x * 0.5 - 128 * 3,
+		window.getSize().y * 0.5 - 256);
+	window.draw(text);
+	window.draw(player.getSprite());
     // Show everything we have just drawn
-    Win.display();
+    window.display();
 }

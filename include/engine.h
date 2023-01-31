@@ -12,10 +12,10 @@ class Engine
 {
 private:
 
-    RenderWindow Win;  
+    RenderWindow window;  
  
-    Sprite	BackgroundSprite;
-    Texture	BackgroundTexture;
+    Sprite	backgroundSprite;
+    Texture	backgroundTexture;
     Font	font;
 	Music	music;
 	Player	player;
