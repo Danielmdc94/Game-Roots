@@ -19,9 +19,12 @@ private:
     Font	font;
 	Music	music;
 	Player	player;
+	Event	event;
+	Time	deltaTime;
+	Clock	clock;
 
     // Private functions for internal use only
-    void input();
+	void dispatchEvent(Event event);
     void update(float DeltaTimetInSeconds);
     void render();
  

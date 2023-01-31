@@ -3,8 +3,8 @@ NAME = my_game
 CC = g++
 
 FILES = \
+	dispatchEvent.cpp \
 	engine.cpp \
-	input.cpp \
 	main.cpp \
 	player.cpp \
 	render.cpp \

@@ -1,5 +1,9 @@
 #include "../include/roots.h"
 #include "../include/player.h"
+#include "../include/engine.h"
+#include <SFML/System.hpp>
+#include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
  
 Player::Player()
 {
@@ -21,7 +25,7 @@ Sprite Player::getSprite()
 {
     return sprite;
 }
- 
+
 void Player::moveLeft()
 {
     leftPressed = true;
