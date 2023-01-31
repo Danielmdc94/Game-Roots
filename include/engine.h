@@ -4,6 +4,7 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include "roots.h"
+#include "player.h"
  
 using namespace sf;
  
@@ -17,6 +18,7 @@ private:
     Texture	BackgroundTexture;
     Font	font;
 	Music	music;
+	Player	player;
 
     // Private functions for internal use only
     void input();

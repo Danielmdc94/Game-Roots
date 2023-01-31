@@ -7,4 +7,24 @@ void Engine::input()
     {
         Win.close();
     }
+
+    // Handle the player moving
+    if (Keyboard::isKeyPressed(Keyboard::A))
+    {
+        player.moveLeft();
+    }
+    else
+    {
+        player.stopLeft();
+    }
+ 
+    if (Keyboard::isKeyPressed(Keyboard::D))
+    {
+        player.moveRight();
+    }
+    else
+    {
+        player.stopRight();
+    }  
+
 }

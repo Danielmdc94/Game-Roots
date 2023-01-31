@@ -6,8 +6,9 @@ FILES = \
 	engine.cpp \
 	input.cpp \
 	main.cpp \
+	player.cpp \
 	render.cpp \
-	update.cpp
+	update.cpp 
 
 SRC_DIR = ./src
 SRC := $(patsubst %, $(SRC_DIR)/%, $(FILES))
