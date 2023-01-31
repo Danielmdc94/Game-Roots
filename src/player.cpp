@@ -6,7 +6,7 @@ Player::Player()
     speed = 400;
  
     // Associate a texture with the sprite
-    texture.loadFromFile("assets/player.jpg");
+    texture.loadFromFile("assets/player_transparent.png");
     sprite.setTexture(texture);     
     sprite.setScale(0.5, 0.5);
 
