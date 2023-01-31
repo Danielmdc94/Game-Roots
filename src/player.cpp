@@ -1,3 +1,4 @@
+#include "../include/roots.h"
 #include "../include/player.h"
  
 Player::Player()
@@ -6,7 +7,7 @@ Player::Player()
     speed = 400;
  
     // Associate a texture with the sprite
-    texture.loadFromFile("assets/player_transparent.png");
+    texture.loadFromFile(PLAYER_PATH);
     sprite.setTexture(texture);     
     sprite.setScale(0.5, 0.5);
 
