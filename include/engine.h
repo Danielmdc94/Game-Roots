@@ -3,6 +3,7 @@
 
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
+#include <sstream>
 #include "roots.h"
 #include "player.h"
  
