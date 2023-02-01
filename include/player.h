@@ -15,6 +15,7 @@ private:
  
 	bool leftPressed;
 	bool rightPressed;
+//	bool spacePressed;
  
 	float speed;
  

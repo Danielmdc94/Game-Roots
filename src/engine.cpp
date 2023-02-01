@@ -18,16 +18,14 @@ Engine::Engine()
 
 	// Load a music to play
 	music.openFromFile(MAINTHEME_PATH);
-	
- 
 }
- 
+
 void Engine::start()
 {
-	// Timing
-	Clock clock;
-
+	// Start playing loaded music track and loop it
 	music.play();
+	music.setLoop(true);
+	// Main game loop
 	while (window.isOpen())
 	{
 		// Restart the clock and save the elapsed time into DeltaTime
@@ -35,9 +33,15 @@ void Engine::start()
  
 		// Make a fraction from the delta time
 		float deltaTimeAsSeconds = deltaTime.asSeconds();
+
+		// Manage events until queue is empty
 		while (window.pollEvent(event))
-			dispatchEvent(event);
+			input(event);
+
+		// Update game state each frame
 		update(deltaTimeAsSeconds);
+
+		// Render the current state of the game each frame
 		render();
 	}
 }

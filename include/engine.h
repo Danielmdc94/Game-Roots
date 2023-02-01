@@ -3,6 +3,9 @@
 
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
+#include <SFML/System.hpp>
+
 #include "roots.h"
 #include "player.h"
  
@@ -13,7 +16,6 @@ class Engine
 private:
 
     RenderWindow window;  
- 
     Sprite	backgroundSprite;
     Texture	backgroundTexture;
     Font	font;
@@ -24,7 +26,7 @@ private:
 	Clock	clock;
 
     // Private functions for internal use only
-	void dispatchEvent(Event event);
+	void input(Event event);
     void update(float DeltaTimetInSeconds);
     void render();
  

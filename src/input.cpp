@@ -1,12 +1,12 @@
 #include "../include/engine.h"
 
-void Engine::dispatchEvent(Event event)
+void Engine::input(Event event)
 {
-	//Close window when clicking x button
+    //Close window when clicking x button
 	if (event.type == sf::Event::Closed)
 				window.close();
-	
-	// Handle the player quitting
+                
+    // Handle the player quitting
 	if (Keyboard::isKeyPressed(Keyboard::Escape))
 	{
 		window.close();
@@ -29,5 +29,4 @@ void Engine::dispatchEvent(Event event)
 	{
 		player.stopRight();
 	}  
-
 }
