@@ -1,5 +1,20 @@
 #include "../include/engine.h"
 
+void render_resource()
+{
+	int resource_amount = 0;
+	Text resource_text;
+	std::stringstream ss;
+	
+	ss << resource_amount;
+	resource_text.setFont(font);
+	resource_text.setString(ss.str());
+	resource_text.setCharacterSize(256);
+	resource_text.setFillColor(Color:: Black);
+
+	window.draw(resource_text);
+}
+
 void Engine::render()
 {
     // Rub out the last frame
@@ -23,6 +38,10 @@ void Engine::render()
 		Win.getSize().y * 0.5 - 256);
 	Win.draw(text);
 	Win.draw(player.getSprite());
+
+	// Render resource text
+	//render_resource();
+
     // Show everything we have just drawn
     Win.display();
 }

@@ -47,12 +47,12 @@ void Player::update(float elapsedTime)
 {
     if (rightPressed)
     {
-        position.x += speed * elapsedTime;
+            position.x += speed * elapsedTime;
     }
  
     if (leftPressed)
     {
-        position.x -= speed * elapsedTime;
+            position.x -= speed * elapsedTime;
     }
  
     // Now move the sprite to its new position
