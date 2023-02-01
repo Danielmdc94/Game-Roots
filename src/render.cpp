@@ -1,20 +1,5 @@
 #include "../include/engine.h"
 
-void render_resource()
-{
-	int resource_amount = 0;
-	Text resource_text;
-	std::stringstream ss;
-	
-	ss << resource_amount;
-	resource_text.setFont(font);
-	resource_text.setString(ss.str());
-	resource_text.setCharacterSize(256);
-	resource_text.setFillColor(Color:: Black);
-
-	window.draw(resource_text);
-}
-
 void Engine::render()
 {
     // Rub out the last frame
@@ -40,7 +25,16 @@ void Engine::render()
 	Win.draw(player.getSprite());
 
 	// Render resource text
-	//render_resource();
+	int water_amount = 20;
+	Text water_text;
+	std::stringstream ss;
+	ss << water_amount;
+	water_text.setFont(font);
+	water_text.setString(ss.str());
+	water_text.setCharacterSize(50);
+	water_text.setFillColor(Color:: Black);
+	water_text.setPosition(Win.getSize().x - 200, 100);
+	Win.draw(water_text);
 
     // Show everything we have just drawn
     Win.display();
