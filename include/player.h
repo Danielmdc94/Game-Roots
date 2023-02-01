@@ -1,6 +1,7 @@
 #ifndef PLAYER_H
 # define PLAYER_H
 #include <SFML/Graphics.hpp>
+# include "../include/hitbox.h"
  
 using namespace sf;
  
@@ -17,10 +18,17 @@ private:
  
     // Corresponding texture
     Texture texture;
+
+    //hit box
+    Vector2f box;
+    // int wdith;
+    // int height;
  
     // Which direction(s) is the player currently moving in
     bool leftPressed;
     bool rightPressed;
+    bool upPressed;
+    bool downPressed;
  
     // Bob's speed in pixels per second
     float speed;
@@ -38,11 +46,19 @@ public:
     void moveLeft();
  
     void moveRight();
+
+    void moveUp();
+ 
+    void moveDown();
  
     // Stop player moving in a specific direction
     void stopLeft();
  
     void stopRight();
+
+    void stopUp();
+ 
+    void stopDown();
  
     // We will call this function once every frame
     void update(float elapsedTime);

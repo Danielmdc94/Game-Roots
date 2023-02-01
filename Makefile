@@ -8,7 +8,8 @@ FILES = \
 	main.cpp \
 	player.cpp \
 	render.cpp \
-	update.cpp 
+	update.cpp \
+	hitbox.cpp
 
 SRC_DIR = ./src
 SRC := $(patsubst %, $(SRC_DIR)/%, $(FILES))
@@ -17,13 +18,13 @@ OBJ_DIR = ./obj
 OBJ = $(patsubst %, $(OBJ_DIR)/%, $(FILES:.cpp=.o))
 
 HEADERS = \
-	-I /opt/homebrew/Cellar/sfml/2.5.1_2/include
+	-I /Users/leklund/.brew/Cellar/sfml/2.5.1_2/include
 
 FLAGS = \
 	-Wall -Wextra -Werror -flto -Ofast
 
 LIBLINKS = \
-	-L/opt/homebrew/Cellar/sfml/2.5.1_2/lib \
+	-L /Users/leklund/.brew/Cellar/sfml/2.5.1_2/lib \
 	-lsfml-window -lsfml-system -lsfml-graphics -lsfml-audio
 
 all: $(NAME)

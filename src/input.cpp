@@ -26,4 +26,21 @@ void Engine::input()
         player.stopRight();
     }  
 
+    if (Keyboard::isKeyPressed(Keyboard::W))
+    {
+        player.moveUp();
+    }
+    else
+    {
+        player.stopUp();
+    }
+    if (Keyboard::isKeyPressed(Keyboard::S))
+    {
+        player.moveDown();
+    }
+    else
+    {
+        player.stopDown();
+    } 
+
 }
