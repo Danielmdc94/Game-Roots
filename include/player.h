@@ -21,7 +21,7 @@ private:
     // Which direction(s) is the player currently moving in
     bool leftPressed;
     bool rightPressed;
- 
+
     // Bob's speed in pixels per second
     float speed;
  
