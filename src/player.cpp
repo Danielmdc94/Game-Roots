@@ -1,9 +1,6 @@
 #include "../include/roots.h"
 #include "../include/player.h"
 #include "../include/engine.h"
-#include <SFML/System.hpp>
-#include <SFML/Graphics.hpp>
-#include <SFML/Window.hpp>
  
 Player::Player()
 {
@@ -53,10 +50,14 @@ void Player::update(float elapsedTime)
 	if (rightPressed)
 	{
 		position.x += speed * elapsedTime;
+		if (position.x > WIN_W - sprite.getGlobalBounds().width)
+			position.x = WIN_W - sprite.getGlobalBounds().width;
 	}
 	if (leftPressed)
 	{
 		position.x -= speed * elapsedTime;
+		if (position.x < 0)
+			position.x = 0;
 	}
  
 	// Now move the sprite to its new position

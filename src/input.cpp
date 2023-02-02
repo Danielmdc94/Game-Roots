@@ -2,15 +2,18 @@
 
 void Engine::input(Event event)
 {
-    //Close window when clicking x button
-	if (event.type == sf::Event::Closed)
-				window.close();
-                
-    // Handle the player quitting
-	if (Keyboard::isKeyPressed(Keyboard::Escape))
-	{
-		window.close();
-	}
+    switch (event.type)
+    {
+        case sf::Event::Closed:
+            window.close();
+            break;
+        case sf::Event::KeyPressed:
+            if (event.key.code == Keyboard::Escape)
+                window.close();
+            break;
+        default:
+            break;
+    }
 
 	// Handle the player moving
 	if (Keyboard::isKeyPressed(Keyboard::A))

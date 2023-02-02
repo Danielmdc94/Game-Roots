@@ -1,5 +1,3 @@
-#include <SFML/Audio.hpp>
-#include <SFML/Graphics.hpp>
 #include "../include/engine.h"
  
 Engine::Engine()

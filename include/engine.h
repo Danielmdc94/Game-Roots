@@ -5,6 +5,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/System.hpp>
+#include <SFML/Network.hpp>
 
 #include "roots.h"
 #include "player.h"
@@ -15,15 +16,22 @@ class Engine
 {
 private:
 
-    RenderWindow window;  
-    Sprite	backgroundSprite;
-    Texture	backgroundTexture;
-    Font	font;
-	Music	music;
-	Player	player;
-	Event	event;
-	Time	deltaTime;
-	Clock	clock;
+	void	initVariables();
+	void	initWindow();
+
+	//Window
+    RenderWindow	window;  
+	VideoMode		videoMode;
+	Event			event;
+
+	//Variables
+    Sprite			backgroundSprite;
+    Texture			backgroundTexture;
+    Font			font;
+	Music			music;
+	Player			player;
+	Time			deltaTime;
+	Clock			clock;
 
     // Private functions for internal use only
 	void input(Event event);
@@ -31,7 +39,7 @@ private:
     void render();
  
 public:
-    // The Engine constructor
+    // The Engine constructor and destructor
     Engine();
  
     // start will call all the private functions
