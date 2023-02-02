@@ -27,9 +27,8 @@ void Engine::start()
 {
     // Timing
     Clock clock;
-	// sf::RectangleShape box;
-    // box.setFillColor(sf::Color::Green);
-	// box.setSize(sf::Vector2f(500.f, 500.f));
+
+	
 
     music.play();
     while (window.isOpen())
@@ -48,5 +47,6 @@ void Engine::start()
         input();
         update(DeltaTimeAsSeconds);
         render();
+
     }
 }

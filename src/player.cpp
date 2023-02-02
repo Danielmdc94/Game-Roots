@@ -1,10 +1,11 @@
 #include "../include/roots.h"
 #include "../include/player.h"
+
  
 Player::Player()
 {
     // How fast does the player move? In pixels
-    speed = 400;
+    speed = 800;
  
     // Associate a texture with the sprite
     texture.loadFromFile(PLAYER_PATH);
@@ -16,8 +17,7 @@ Player::Player()
     position.y = 700;
 
     // sets the hitbox for the player
-    box.x = 100;
-    box.y = 100;
+    hitbox.setSize(75, 87, 5, 115);
     // wdith = 50.0f;
     // height = 50.0f;
     // hitbox(500.f);
@@ -95,17 +95,20 @@ void Player::update(float elapsedTime)
     {
         position.y += speed * elapsedTime;
     }
+    hitbox.setcoord(position);
     //
     // hitbox
     //Screen Collision checker
-    if (position.x < 0)
-        position.x = 0;
-    else if (position.x + box.x > WIN_W)
-        position.x = WIN_W - box.x;
-    if (position.y < 0)
-        position.y = 0;
-    else if (position.y + box.y > WIN_H)
-        position.y = WIN_H - box.y;
+    if (hitbox.position.x < 0)
+        position.x = -hitbox.offX;
+    else if (position.x + hitbox.width + hitbox.offX > WIN_W)
+        position.x = WIN_W - (hitbox.width + hitbox.offX);
+    if (hitbox.position.y < 0)
+        position.y = -hitbox.offY;
+    else if (position.y + hitbox.height + hitbox.offY > WIN_H)
+        position.y = WIN_H - (hitbox.height + hitbox.offY);
+
+
 
     // Now move the sprite to its new position
     sprite.setPosition(position);   

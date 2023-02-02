@@ -19,8 +19,7 @@ private:
     // Corresponding texture
     Texture texture;
 
-    //hit box
-    Vector2f box;
+    //hitbox
     // int wdith;
     // int height;
  
@@ -35,7 +34,8 @@ private:
  
     // Public functions
 public:
- 
+    Hitbox  hitbox;
+
     // We will set Bob up in the constructor
     Player();
  

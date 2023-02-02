@@ -3,8 +3,26 @@
 #include "../include/hitbox.h"
 
 
-hitbox::hitbox(float size_m2)
+void Hitbox::setcoord(sf::Vector2f position)
 {
-	box.setFillColor(sf::Color::Green);
-	box.setSize(sf::Vector2f(size_m2, size_m2));
+	position.x += offX; 
+	position.y += offY;
+	Hitbox::position = position;
+	box.setPosition(position); 
+}
+
+
+void Hitbox::setSize(int size_x, int size_y, int offsetX, int offsetY)
+{
+	offX = offsetX;
+	offY = offsetY;
+	width = size_x;
+	height = size_y;
+	box.setSize(sf::Vector2f(size_x, size_y));
+}
+
+Hitbox::Hitbox()
+{
+	box.setFillColor(sf::Color(0,255,0,100));
+	box.setSize(sf::Vector2f(50, 50));
 }
