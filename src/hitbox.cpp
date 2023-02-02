@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "../include/hitbox.h"
 
+// Nona was here!
 
 void Hitbox::setcoord(sf::Vector2f position)
 {
