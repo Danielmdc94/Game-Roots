@@ -7,6 +7,7 @@
 #include <SFML/System.hpp>
 #include <SFML/Network.hpp>
 
+#include <sstream>
 #include "roots.h"
 #include "player.h"
  
