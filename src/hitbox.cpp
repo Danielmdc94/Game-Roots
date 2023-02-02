@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "../include/hitbox.h"
 
+// Nona was here!
 
 hitbox::hitbox(float size_m2)
 {
