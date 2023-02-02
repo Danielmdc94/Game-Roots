@@ -16,12 +16,8 @@ class Engine
 {
 private:
 
-	void	initVariables();
-	void	initWindow();
-
 	//Window
-    RenderWindow	window;  
-	VideoMode		videoMode;
+    RenderWindow	window;
 	Event			event;
 
 	//Variables
