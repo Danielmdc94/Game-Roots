@@ -4,10 +4,6 @@
 void Engine::render()
 {
 
-	// RectangleShape box;
-    // box.setFillColor(Color::Green);
-	// box.setSize(sf::Vector2f(50.f, 50.f));
-
     // Rub out the last frame
     window.clear(Color::Black);
 
@@ -28,14 +24,14 @@ void Engine::render()
 	text.setPosition(window.getSize().x * 0.5 - 128 * 3,
 		window.getSize().y * 0.5 - 256);
 	
-	// if(player.getSprite().getGlobalBounds().intersects(box.getGlobalBounds()))
+	// if(player.hitbox.box.getGlobalBounds().intersects(ground.box.getGlobalBounds()))
     // {
-    //     box.setFillColor(Color::Red);
+    //     ground.box.setFillColor(Color::Red);
     // }
     // else
-    //     box.setFillColor(Color::Green);
+    //     ground.box.setFillColor(Color::Green);
 	window.draw(text);
-    // window.draw(box);
+    window.draw(ground.box);
 	window.draw(player.getSprite());
 	window.draw(player.hitbox.box);
 

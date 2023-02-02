@@ -1,5 +1,4 @@
-#include "../include/roots.h"
-#include "../include/player.h"
+#include "../include/engine.h"
 
  
 Player::Player()
@@ -18,9 +17,6 @@ Player::Player()
 
     // sets the hitbox for the player
     hitbox.setSize(75, 87, 5, 115);
-    // wdith = 50.0f;
-    // height = 50.0f;
-    // hitbox(500.f);
 }
  
 // Make the private spite available to the draw() function
@@ -96,7 +92,7 @@ void Player::update(float elapsedTime)
         position.y += speed * elapsedTime;
     }
     hitbox.setcoord(position);
-    //
+    Player::getSprite();
     // hitbox
     //Screen Collision checker
     if (hitbox.position.x < 0)
@@ -105,9 +101,8 @@ void Player::update(float elapsedTime)
         position.x = WIN_W - (hitbox.width + hitbox.offX);
     if (hitbox.position.y < 0)
         position.y = -hitbox.offY;
-    else if (position.y + hitbox.height + hitbox.offY > WIN_H)
-        position.y = WIN_H - (hitbox.height + hitbox.offY);
-
+    else if (position.y + hitbox.height + hitbox.offY > WIN_H - Engine::getGround().box.height)
+        position.y = WIN_H - (hitbox.height + hitbox.offY + Engine::getGround().box.height);
 
 
     // Now move the sprite to its new position

@@ -19,6 +19,7 @@ class	Hitbox
 	Hitbox();
 	void setSize(int size_x, int size_y, int offsetX, int offsetY);
 	void setcoord(sf::Vector2f position);
+	
 
 };
 

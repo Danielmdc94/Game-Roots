@@ -22,13 +22,23 @@ Engine::Engine()
  
 }
 
+Hitbox Engine::getGround()
+{
+    return ground;
+}
 
 void Engine::start()
 {
     // Timing
     Clock clock;
 
-	
+	//adds ground to the game
+    Vector2f pos;
+    pos.x = 0;
+    pos.y = WIN_H - 100;
+    ground.box.setFillColor(Color::Green);
+	ground.setSize(WIN_W, 100, 0, 0);
+    ground.setcoord(pos);
 
     music.play();
     while (window.isOpen())

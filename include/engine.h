@@ -19,6 +19,8 @@ private:
     Font	font;
 	Music	music;
 	Player	player;
+    static Hitbox  ground;
+
 
     // Private functions for internal use only
     void input();
@@ -31,6 +33,10 @@ public:
  
     // start will call all the private functions
     void start();
+
+    //let there be ground
+    Hitbox getGround();
+
 };
 
 #endif
