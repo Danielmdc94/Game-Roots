@@ -14,22 +14,4 @@ void Engine::input(Event event)
         default:
             break;
     }
-
-	// Handle the player moving
-	if (Keyboard::isKeyPressed(Keyboard::A))
-	{
-		player.moveLeft();
-	}
-	else
-	{
-		player.stopLeft();
-	}
-	if (Keyboard::isKeyPressed(Keyboard::D))
-	{
-		player.moveRight();
-	}
-	else
-	{
-		player.stopRight();
-	}  
 }

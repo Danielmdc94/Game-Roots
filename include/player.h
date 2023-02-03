@@ -9,15 +9,11 @@ class Player
 	// All the private variables can only be accessed internally
 private:
 
-	Vector2f position;
-	Sprite sprite;
-	Texture texture;
+	Vector2f	position;
+	Sprite		sprite;
+	Texture		texture;
  
-	bool leftPressed;
-	bool rightPressed;
-//	bool spacePressed;
- 
-	float speed;
+	float		speed;
  
 	// Public functions
 public:
@@ -27,14 +23,6 @@ public:
  
 	// Accessors
 	Sprite getSprite();
- 
-	// Move player in a specific direction
-	void moveLeft();
-	void moveRight();
- 
-	// Stop player moving in a specific direction
-	void stopLeft();
-	void stopRight();
  
 	// We will call this function once every frame
 	void update(float elapsedTime);

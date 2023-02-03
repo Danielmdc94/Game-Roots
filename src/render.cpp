@@ -37,8 +37,8 @@ void Engine::render()
 	water_text.setFont(font);
 	water_text.setString(ss.str());
 	water_text.setCharacterSize(50);
-	water_text.setFillColor(Color:: Black);
-	water_text.setPosition(window.getSize().x - 200, 100);
+	water_text.setFillColor(Color:: Cyan);
+	water_text.setPosition(window.getSize().x - 100, 80);
 	window.draw(water_text);
 
     // Show everything we have just drawn

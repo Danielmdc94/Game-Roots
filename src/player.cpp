@@ -22,26 +22,6 @@ Sprite Player::getSprite()
 	return sprite;
 }
 
-void Player::moveLeft()
-{
-	leftPressed = true;
-}
- 
-void Player::moveRight()
-{
-	rightPressed = true;
-}
- 
-void Player::stopLeft()
-{
-	leftPressed = false;
-}
- 
-void Player::stopRight()
-{
-	rightPressed = false;
-}
- 
 // Move player based on the input this frame,
 // the time elapsed, and the speed
 void Player::update(float elapsedTime)
@@ -50,19 +30,22 @@ void Player::update(float elapsedTime)
 	if (sprite.getPosition().x < 0)
 		sprite.setPosition(0, sprite.getPosition().y);
 	if (sprite.getPosition().x > WIN_W - sprite.getGlobalBounds().width)
-		sprite.setPosition(WIN_W - sprite.getGlobalBounds().width, sprite.getPosition().y);
+		sprite.setPosition(WIN_W - sprite.getGlobalBounds().height, sprite.getPosition().y);
 	if (sprite.getPosition().y < 0)
 		sprite.setPosition(sprite.getPosition().x, 0);
-	if (sprite.getPosition().y > WIN_H - sprite.getGlobalBounds().width)
-		sprite.setPosition(sprite.getPosition().x, WIN_H - sprite.getGlobalBounds().width); 
+	if (sprite.getPosition().y > WIN_H - sprite.getGlobalBounds().height)
+		sprite.setPosition(sprite.getPosition().x, WIN_H - sprite.getGlobalBounds().height); 
 	// Player input
-	if (rightPressed)
-		sprite.move(speed * elapsedTime, 0.f);
-		
-	if (leftPressed)
+	if (Keyboard::isKeyPressed(Keyboard::A))
 		sprite.move(-speed * elapsedTime, 0.f);
- 
-	// Now move the sprite to its new position
-	//sprite.setPosition(position);   
- 
+	if (Keyboard::isKeyPressed(Keyboard::D))
+		sprite.move(speed * elapsedTime, 0.f);
+	if (Keyboard::isKeyPressed(Keyboard::S))
+		sprite.move(0.f, speed * elapsedTime);
+	if (Keyboard::isKeyPressed(Keyboard::Space))
+		sprite.move(0.f, -speed * elapsedTime);
+	// Crude gravity implementation
+	if (sprite.getPosition().y < 700)
+    	sprite.move(0, speed / 2 * elapsedTime);
+
 }
