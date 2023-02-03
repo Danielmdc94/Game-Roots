@@ -1,4 +1,4 @@
-NAME = my_game
+NAME = roots
 
 CC = g++
 

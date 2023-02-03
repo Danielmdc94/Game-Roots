@@ -25,7 +25,7 @@ public:
 	// Player constructor
 	Player();
  
-	// Send a copy of the sprite to main
+	// Accessors
 	Sprite getSprite();
  
 	// Move player in a specific direction

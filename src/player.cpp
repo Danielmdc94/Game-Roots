@@ -1,4 +1,3 @@
-#include "../include/roots.h"
 #include "../include/player.h"
 #include "../include/engine.h"
  
@@ -47,20 +46,23 @@ void Player::stopRight()
 // the time elapsed, and the speed
 void Player::update(float elapsedTime)
 {
+	// Window bounds collision
+	if (sprite.getPosition().x < 0)
+		sprite.setPosition(0, sprite.getPosition().y);
+	if (sprite.getPosition().x > WIN_W - sprite.getGlobalBounds().width)
+		sprite.setPosition(WIN_W - sprite.getGlobalBounds().width, sprite.getPosition().y);
+	if (sprite.getPosition().y < 0)
+		sprite.setPosition(sprite.getPosition().x, 0);
+	if (sprite.getPosition().y > WIN_H - sprite.getGlobalBounds().width)
+		sprite.setPosition(sprite.getPosition().x, WIN_H - sprite.getGlobalBounds().width); 
+	// Player input
 	if (rightPressed)
-	{
-		position.x += speed * elapsedTime;
-		if (position.x > WIN_W - sprite.getGlobalBounds().width)
-			position.x = WIN_W - sprite.getGlobalBounds().width;
-	}
+		sprite.move(speed * elapsedTime, 0.f);
+		
 	if (leftPressed)
-	{
-		position.x -= speed * elapsedTime;
-		if (position.x < 0)
-			position.x = 0;
-	}
+		sprite.move(-speed * elapsedTime, 0.f);
  
 	// Now move the sprite to its new position
-	sprite.setPosition(position);   
+	//sprite.setPosition(position);   
  
 }

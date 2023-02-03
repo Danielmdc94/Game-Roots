@@ -9,23 +9,24 @@ void Engine::render()
     window.draw(backgroundSprite);
 
 	// Render title text
-	Text text;
+	Text		text;
+	Vector2f	textPos;
+
 	text.setFont(font);
 	text.setString("ROOTS");
 	text.setCharacterSize(256);
-	text.setFillColor(Color:: Black);
-	text.setPosition(window.getSize().x * 0.5 - 128 * 3 +4,
-		window.getSize().y * 0.5 - 252);
-	window.draw(text);
 	text.setFillColor(Color:: Green);
-	text.setOutlineColor(Color:: Black);
-	text.setPosition(window.getSize().x * 0.5 - 128 * 3,
-		window.getSize().y * 0.5 - 256);
+	textPos.x = window.getSize().x * 0.5 - 128 * 3 + 4;
+	textPos.y = window.getSize().y * 0.5 - 252;
+	text.setPosition(textPos.x, textPos.y);
 	window.draw(text);
-	window.draw(player.getSprite());
-	text.setPosition(window.getSize().x * 0.5 - 128 * 3,
-		window.getSize().y * 0.5 - 256);
+	text.setFillColor(Color(128, 67, 6));
+	textPos.x = window.getSize().x * 0.5 - 128 * 3;
+	textPos.y = window.getSize().y * 0.5 - 256;
+	text.setPosition(textPos.x, textPos.y);
 	window.draw(text);
+
+	//Render player
 	window.draw(player.getSprite());
 
 	// Render resource text
