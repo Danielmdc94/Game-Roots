@@ -24,7 +24,6 @@ class	Hitbox
 
 	//sets the position for the hitbox
 	void setcoord(sf::Vector2f position);
-	void setcoord2(sf::Vector2f position);
 	
 
 };

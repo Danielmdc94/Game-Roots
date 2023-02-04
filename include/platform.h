@@ -2,6 +2,7 @@
 # define PLATFORM_H
 # include "hitbox.h"
 
+class Player;
 
 class	Platform
 {
@@ -25,7 +26,8 @@ class	Platform
 
 	sf::Sprite getSpritePlat();
 
-	// void groundScreenCheck(Player *player);
+	sf::Vector2f groundCheck(Player *player, sf::Vector2f position);
+	sf::Vector2f CollisionCheck(Player *player, sf::Vector2f position);
 	// sf::Sprite getSpritePlat();
 
  
