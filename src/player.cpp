@@ -1,4 +1,8 @@
 #include "../include/engine.h"
+# include "../include/platform.h"
+
+
+
 
  
 Player::Player()
@@ -17,6 +21,22 @@ Player::Player()
 
     // sets the hitbox for the player
     hitbox.setSize(75, 87, 5, 115);
+
+    //adds ground to the game
+    ground.pos.x = 0;
+    ground.pos.y = WIN_H - 100;
+    ground.hitbox.box.setFillColor(Color::Green);
+	ground.hitbox.setSize(WIN_W, 100, 0, 0);
+    ground.hitbox.setcoord(ground.pos);
+    //adds the shroom
+    shroom.texture.loadFromFile(SHROOM);
+    shroom.sprite.setTexture(shroom.texture); 
+    shroom.hitbox.box.setFillColor(Color::Green);
+    shroom.sprite.setScale(0.5, 0.5);
+    shroom.pos.x = 100;
+	shroom.pos.y = 100;
+	shroom.hitbox.setSize(100, 30, 20, 20);
+    shroom.hitbox.setcoord(shroom.pos);
 }
  
 // Make the private spite available to the draw() function
@@ -24,8 +44,6 @@ Sprite Player::getSprite()
 {
     return sprite;
 }
-
-
  
 void Player::moveLeft()
 {
@@ -91,18 +109,20 @@ void Player::update(float elapsedTime)
     {
         position.y += speed * elapsedTime;
     }
+    //set the cords for the hitbox rlative to the player
     hitbox.setcoord(position);
-    Player::getSprite();
-    // hitbox
-    //Screen Collision checker
+    
+    //Screen and ground Collision checker
     if (hitbox.position.x < 0)
         position.x = -hitbox.offX;
     else if (position.x + hitbox.width + hitbox.offX > WIN_W)
         position.x = WIN_W - (hitbox.width + hitbox.offX);
     if (hitbox.position.y < 0)
         position.y = -hitbox.offY;
-    else if (position.y + hitbox.height + hitbox.offY > WIN_H - Engine::getGround().box.height)
-        position.y = WIN_H - (hitbox.height + hitbox.offY + Engine::getGround().box.height);
+    else if (position.y + hitbox.height + hitbox.offY > WIN_H - ground.hitbox.height)
+        position.y = WIN_H - (hitbox.height + hitbox.offY + ground.hitbox.height);
+    
+    //Check if player collieded with any otehr obstacle
 
 
     // Now move the sprite to its new position

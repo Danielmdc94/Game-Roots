@@ -1,7 +1,7 @@
 #ifndef PLAYER_H
 # define PLAYER_H
 #include <SFML/Graphics.hpp>
-# include "../include/hitbox.h"
+# include "platform.h"
  
 using namespace sf;
  
@@ -18,10 +18,6 @@ private:
  
     // Corresponding texture
     Texture texture;
-
-    //hitbox
-    // int wdith;
-    // int height;
  
     // Which direction(s) is the player currently moving in
     bool leftPressed;
@@ -34,7 +30,12 @@ private:
  
     // Public functions
 public:
+    //Player Hitbox
     Hitbox  hitbox;
+    Platform    ground;
+    Platform    shroom;
+    // Hitbox  ground;
+
 
     // We will set Bob up in the constructor
     Player();

@@ -1,10 +1,10 @@
 #ifndef ENGINE_H
 # define ENGINE_H
 
-#include <SFML/Audio.hpp>
-#include <SFML/Graphics.hpp>
-#include "roots.h"
-#include "player.h"
+# include <SFML/Audio.hpp>
+# include <SFML/Graphics.hpp>
+# include "roots.h"
+# include "player.h"
  
 using namespace sf;
  
@@ -19,8 +19,6 @@ private:
     Font	font;
 	Music	music;
 	Player	player;
-    static Hitbox  ground;
-
 
     // Private functions for internal use only
     void input();
@@ -35,7 +33,7 @@ public:
     void start();
 
     //let there be ground
-    Hitbox getGround();
+    // Hitbox getGround();
 
 };
 
