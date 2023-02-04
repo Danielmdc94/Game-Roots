@@ -35,10 +35,14 @@ Player::Player()
     shroom.sprite.setScale(0.5, 0.5);
     shroom.pos.x = 100;
 	shroom.pos.y = 100;
-	shroom.hitbox.setSize(100, 30, 20, 20);
+	shroom.hitbox.setSize(100, 30, 20, 0);
     shroom.hitbox.setcoord(shroom.pos);
+    shroom.sprite.setPosition(shroom.pos);   
+
 }
  
+
+
 // Make the private spite available to the draw() function
 Sprite Player::getSprite()
 {

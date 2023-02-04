@@ -1,10 +1,6 @@
 #include "../include/engine.h"
 # include "../include/player.h"
 
-Sprite Platform::getSpritePlat()
-{
-    return sprite;
-}
 Vector2f Platform::groundCheck(Player *player, Vector2f position)
 {
 	if (player->hitbox.position.x < 0)

@@ -24,7 +24,7 @@ class	Platform
 	// Corresponding texture
     sf::Texture texture;
 
-	sf::Sprite getSpritePlat();
+
 
 	sf::Vector2f groundCheck(Player *player, sf::Vector2f position);
 	sf::Vector2f CollisionCheck(Player *player, sf::Vector2f position);

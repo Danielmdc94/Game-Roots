@@ -33,7 +33,7 @@ void Engine::render()
 	window.draw(text);
     // window.draw(player.ground.hitbox.box);
     window.draw(player.ground.hitbox.box);
-    window.draw(player.shroom.getSpritePlat());
+    window.draw(player.shroom.sprite);
     window.draw(player.shroom.hitbox.box);
 	window.draw(player.getSprite());
 	window.draw(player.hitbox.box);
