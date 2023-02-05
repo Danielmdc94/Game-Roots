@@ -20,13 +20,14 @@ private:
 	double		friction;
 	double		gravity;
 	double		maxSpeed;
+	bool		onGround;
 
 	double		speed;
 
 	// Public functions
 public:
     //Player Hitbox
-    Hitbox  hitbox;
+    Hitbox  	hitbox;
     Obstacle    ground;
     Obstacle    shroom;
     // Hitbox  ground;

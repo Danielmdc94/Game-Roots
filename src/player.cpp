@@ -19,7 +19,7 @@ Player::Player()
 	velocity.y = 0;
 	acceleration = 1000;
 	friction = 0.99;
-	gravity = 0.1;
+	gravity = 500;
 	maxSpeed = 400;
 
     //set player hitbox
@@ -37,7 +37,7 @@ Player::Player()
     shroom.hitbox.box.setFillColor(Color::Green);
     shroom.sprite.setScale(0.5, 0.5);
     shroom.pos.x = 300;
-    shroom.pos.y = 300;
+    shroom.pos.y = 500;
     shroom.hitbox.setSize(100, 30, 20, 0);
     shroom.hitbox.setcoord(shroom.pos);
     shroom.sprite.setPosition(shroom.pos);
@@ -58,46 +58,13 @@ void Player::update(double deltaTime)
 		applyForce(3 *M_PI/2, deltaTime);
 
 	velocity.x *= (1 - friction * deltaTime);
-	velocity.y *= (1 - friction * deltaTime);
+	velocity.y = velocity.y * (1 - friction * deltaTime) + gravity * deltaTime;
 	position.x += velocity.x * deltaTime;
 	position.y += velocity.y * deltaTime;
 	sprite.setPosition(position.x, position.y);
 
-	// Window bounds collision
-	if (sprite.getPosition().x < 0)
-	{
-		sprite.setPosition(0, sprite.getPosition().y);
-		velocity.y = 0;
-	}
-		
-	if (sprite.getPosition().x > WIN_W - sprite.getGlobalBounds().width)
-		sprite.setPosition(WIN_W - sprite.getGlobalBounds().height, sprite.getPosition().y);
-	if (sprite.getPosition().y < 0)
-		sprite.setPosition(sprite.getPosition().x, 0);
-	if (sprite.getPosition().y > WIN_H - sprite.getGlobalBounds().height)
-		sprite.setPosition(sprite.getPosition().x, WIN_H - sprite.getGlobalBounds().height); 
-    // Window bounds collision
-    // if (sprite.getPosition().x < 0)
-    //     sprite.setPosition(0, sprite.getPosition().y);
-    // if (sprite.getPosition().x > WIN_W - sprite.getGlobalBounds().width)
-    //     sprite.setPosition(WIN_W - sprite.getGlobalBounds().height, sprite.getPosition().y);
-    // if (sprite.getPosition().y < 0)
-    //     sprite.setPosition(sprite.getPosition().x, 0);
-    // if (sprite.getPosition().y > WIN_H - sprite.getGlobalBounds().height)
-    //     sprite.setPosition(sprite.getPosition().x, WIN_H - sprite.getGlobalBounds().height);
     sprite.setPosition(ground.groundCheck(this, sprite.getPosition()));
-    // Player input
-    if (Keyboard::isKeyPressed(Keyboard::A))
-        sprite.move(-speed * deltaTime, 0.f);
-    if (Keyboard::isKeyPressed(Keyboard::D))
-        sprite.move(speed * deltaTime, 0.f);
-    if (Keyboard::isKeyPressed(Keyboard::S))
-        sprite.move(0.f, speed * deltaTime);
-    if (Keyboard::isKeyPressed(Keyboard::Space))
-        sprite.move(0.f, -speed * deltaTime);
-    // Crude gravity implementation
-    if (sprite.getPosition().y < 700)
-        sprite.move(0, speed / 2 * deltaTime);
+
     hitbox.setcoord(sprite.getPosition());
     sprite.setPosition(shroom.CollisionCheck(this, sprite.getPosition()));
 }
