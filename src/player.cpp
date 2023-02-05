@@ -44,7 +44,11 @@ void Player::update(double deltaTime)
 
 	// Window bounds collision
 	if (sprite.getPosition().x < 0)
+	{
 		sprite.setPosition(0, sprite.getPosition().y);
+		velocity.y = 0;
+	}
+		
 	if (sprite.getPosition().x > WIN_W - sprite.getGlobalBounds().width)
 		sprite.setPosition(WIN_W - sprite.getGlobalBounds().height, sprite.getPosition().y);
 	if (sprite.getPosition().y < 0)
