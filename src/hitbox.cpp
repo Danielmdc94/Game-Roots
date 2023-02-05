@@ -23,6 +23,6 @@ void Hitbox::setSize(int size_x, int size_y, int offsetX, int offsetY)
 Hitbox::Hitbox()
 {
 	box.setFillColor(sf::Color(0,255,0,100));
-	box.setSize(sf::Vector2f(50, 50));
+	//box.setSize(sf::Vector2f(50, 50));
 }
 

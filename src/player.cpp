@@ -8,7 +8,7 @@
 Player::Player()
 {
     // How fast does the player move? In pixels
-    speed = 800;
+    speed = 400;
  
     // Associate a texture with the sprite
     texture.loadFromFile(PLAYER_PATH);
@@ -33,9 +33,9 @@ Player::Player()
     shroom.sprite.setTexture(shroom.texture); 
     shroom.hitbox.box.setFillColor(Color::Green);
     shroom.sprite.setScale(0.5, 0.5);
-    shroom.pos.x = 100;
-	shroom.pos.y = 100;
-	shroom.hitbox.setSize(100, 30, 20, 0);
+    shroom.pos.x = 800;
+	shroom.pos.y = 780;
+	shroom.hitbox.setSize(150, 40, 0, 0);
     shroom.hitbox.setcoord(shroom.pos);
     shroom.sprite.setPosition(shroom.pos);   
 
