@@ -1,7 +1,9 @@
 #include "../include/engine.h"
+#include "../include/hitbox.h"
 
 void Engine::render()
 {
+
     // Rub out the last frame
     window.clear(Color::Black);
 
@@ -25,9 +27,15 @@ void Engine::render()
 	textPos.y = window.getSize().y * 0.5 - 256;
 	text.setPosition(textPos.x, textPos.y);
 	window.draw(text);
+    // window.draw(player.ground.hitbox.box);
+    window.draw(player.ground.hitbox.box);
+    window.draw(player.shroom.sprite);
+    window.draw(player.shroom.hitbox.box);
 
 	//Render player
+	window.draw(player.hitbox.box);
 	window.draw(player.getSprite());
+
 
 	// Render resource text
 	int water_amount = 20;

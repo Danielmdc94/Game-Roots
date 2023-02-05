@@ -2,6 +2,7 @@
 # define PLAYER_H
 #include <SFML/Graphics.hpp>
 #include <cmath>
+# include "obstacle.h"
  
 using namespace sf;
  
@@ -10,6 +11,8 @@ class Player
 	// All the private variables can only be accessed internally
 private:
 
+ 
+    Vector2f	position;
 	Sprite		sprite;
 	Texture		texture;
 
@@ -24,6 +27,11 @@ private:
 
 	// Public functions
 public:
+    //Player Hitbox
+    Hitbox  hitbox;
+    Obstacle    ground;
+    Obstacle    shroom;
+    // Hitbox  ground;
  
 	// Player constructor
 	Player();

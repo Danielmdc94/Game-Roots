@@ -20,6 +20,7 @@
 # define MAINTHEME_PATH     "assets/forest_music.ogg"
 # define MAINFONT_PATH      "assets/tree_font.ttf"
 # define PLAYER_PATH        "assets/player_transparent.png"
+# define SHROOM             "assets/shroom_head.png"
  
 using namespace sf;
  
@@ -51,6 +52,8 @@ public:
  
     // start will call all the private functions
     void start();
+
+
 };
 
 #endif
