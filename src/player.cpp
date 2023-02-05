@@ -42,14 +42,7 @@ Player::Player()
     shroom.hitbox.setcoord(shroom.pos);
     shroom.sprite.setPosition(shroom.pos);
 }
- 
 
-
-// Make the private spite available to the draw() function
-Sprite Player::getSprite()
-{
-    return sprite;
-}
 // Move player based on the input this frame,
 // the time elapsed, and the speed
 void Player::update(double deltaTime)

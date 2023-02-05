@@ -19,13 +19,13 @@ OBJ_DIR = ./obj
 OBJ = $(patsubst %, $(OBJ_DIR)/%, $(FILES:.cpp=.o))
 
 HEADERS = \
-	-I /Users/leklund/.brew/Cellar/sfml/2.5.1_2/include
+	-I /opt/homebrew/Cellar/sfml/2.5.1_2/include
 
 FLAGS = \
 	-Wall -Wextra -Werror -flto -Ofast
 
 LIBLINKS = \
-	-L /Users/leklund/.brew/Cellar/sfml/2.5.1_2/lib \
+	-L /opt/homebrew/Cellar/sfml/2.5.1_2/lib \
 	-lsfml-window -lsfml-system -lsfml-graphics -lsfml-audio
 
 all: $(NAME)

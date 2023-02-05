@@ -11,8 +11,6 @@ class Player
 	// All the private variables can only be accessed internally
 private:
 
- 
-    Vector2f	position;
 	Sprite		sprite;
 	Texture		texture;
 
