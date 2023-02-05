@@ -1,46 +1,17 @@
 #include "../include/engine.h"
 
-void Engine::input()
+void Engine::input(Event event)
 {
-    // Handle the player quitting
-    if (Keyboard::isKeyPressed(Keyboard::Escape))
+    switch (event.type)
     {
-        window.close();
+        case sf::Event::Closed:
+            window.close();
+            break;
+        case sf::Event::KeyPressed:
+            if (event.key.code == Keyboard::Escape)
+                window.close();
+            break;
+        default:
+            break;
     }
-
-    // Handle the player moving
-    if (Keyboard::isKeyPressed(Keyboard::A))
-    {
-        player.moveLeft();
-    }
-    else
-    {
-        player.stopLeft();
-    }
-    if (Keyboard::isKeyPressed(Keyboard::D))
-    {
-        player.moveRight();
-    }
-    else
-    {
-        player.stopRight();
-    }  
-
-    if (Keyboard::isKeyPressed(Keyboard::W))
-    {
-        player.moveUp();
-    }
-    else
-    {
-        player.stopUp();
-    }
-    if (Keyboard::isKeyPressed(Keyboard::S))
-    {
-        player.moveDown();
-    }
-    else
-    {
-        player.stopDown();
-    } 
-
 }

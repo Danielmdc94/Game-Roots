@@ -1,7 +1,7 @@
 #include "../include/engine.h"
 # include "../include/player.h"
 
-Vector2f Platform::groundCheck(Player *player, Vector2f position)
+Vector2f Obstacle::groundCheck(Player *player, Vector2f position)
 {
 	if (player->hitbox.position.x < 0)
         position.x = -player->hitbox.offX;
@@ -15,7 +15,7 @@ Vector2f Platform::groundCheck(Player *player, Vector2f position)
 }
 
 
-Vector2f Platform::CollisionCheck(Player *player, Vector2f position)
+Vector2f Obstacle::CollisionCheck(Player *player, Vector2f position)
 {
     if(player->hitbox.box.getGlobalBounds().intersects(hitbox.box.getGlobalBounds()))
     {

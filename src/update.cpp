@@ -1,7 +1,6 @@
 #include "../include/engine.h"
  
-void Engine::update(float DeltaTimeAsSeconds)
+void Engine::update(float deltaTimeAsSeconds)
 {
-        player.update(DeltaTimeAsSeconds);
-
+        player.update(deltaTimeAsSeconds);
 }

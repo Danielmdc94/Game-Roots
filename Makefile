@@ -1,10 +1,10 @@
-NAME = my_game
+NAME = roots
 
 CC = g++
 
 FILES = \
-	engine.cpp \
 	input.cpp \
+	engine.cpp \
 	main.cpp \
 	player.cpp \
 	render.cpp \
