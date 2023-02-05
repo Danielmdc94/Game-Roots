@@ -20,7 +20,7 @@ private:
 	double		friction;
 	double		gravity;
 	double		maxSpeed;
-	bool		onGround;
+	
 
 	double		speed;
 
@@ -30,11 +30,11 @@ public:
     Hitbox  	hitbox;
     Obstacle    ground;
     Obstacle    shroom;
-    // Hitbox  ground;
+    // Hitbox  	ground;
  
 	// Player constructor
 	Player();
- 
+	
 	// Accessors
 	Sprite		getSprite() { return sprite; }
 	double		getPositionX() { return position.x; }

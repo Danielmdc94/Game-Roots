@@ -18,7 +18,7 @@ Player::Player()
 	velocity.x = 0;
 	velocity.y = 0;
 	acceleration = 1000;
-	friction = 0.99;
+	friction = 0.9;
 	gravity = 500;
 	maxSpeed = 400;
 
@@ -57,15 +57,16 @@ void Player::update(double deltaTime)
 	if (Keyboard::isKeyPressed(Keyboard::W))
 		applyForce(3 *M_PI/2, deltaTime);
 
+	//Movement friction and gravity
 	velocity.x *= (1 - friction * deltaTime);
 	velocity.y = velocity.y * (1 - friction * deltaTime) + gravity * deltaTime;
 	position.x += velocity.x * deltaTime;
 	position.y += velocity.y * deltaTime;
 	sprite.setPosition(position.x, position.y);
-
+	
+	//Collission and trigger checks
     sprite.setPosition(ground.groundCheck(this, sprite.getPosition()));
-
-    hitbox.setcoord(sprite.getPosition());
+	hitbox.setcoord(sprite.getPosition());
     sprite.setPosition(shroom.CollisionCheck(this, sprite.getPosition()));
 }
 

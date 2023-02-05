@@ -20,7 +20,12 @@ Vector2f Obstacle::CollisionCheck(Player *player, Vector2f position)
     if(player->hitbox.box.getGlobalBounds().intersects(hitbox.box.getGlobalBounds()))
     {
         if(player->hitbox.position.y + player->hitbox.height <= hitbox.position.y + 2)
+        {
             position.y = hitbox.position.y - player->hitbox.height - player->hitbox.offY;
+            player->onGround = true;
+        }
+        else
+            player->onGround = false;
         // if(hitbox.position.x < shroom.hitbox.position.x - shroom.hitbox.width/2)
         //     position.x = shroom.hitbox.position.x - hitbox.offX - hitbox.width;
         // else
