@@ -1,6 +1,7 @@
 #ifndef PLAYER_H
 # define PLAYER_H
 #include <SFML/Graphics.hpp>
+#include <cmath>
  
 using namespace sf;
  
@@ -9,12 +10,18 @@ class Player
 	// All the private variables can only be accessed internally
 private:
 
-	Vector2f	position;
 	Sprite		sprite;
 	Texture		texture;
- 
-	float		speed;
- 
+
+	Vector2f	position;
+	Vector2f	velocity;
+	double		acceleration;
+	double		friction;
+	double		gravity;
+	double		maxSpeed;
+
+	double		speed;
+
 	// Public functions
 public:
  
@@ -22,10 +29,16 @@ public:
 	Player();
  
 	// Accessors
-	Sprite getSprite();
+	Sprite		getSprite() { return sprite; }
+	double		getPositionX() { return position.x; }
+	double		getPositionY() { return position.y; }
+	double		getVelocityX() { return velocity.x; }
+	double		getVelocityY() { return velocity.y; }
  
-	// We will call this function once every frame
-	void update(float elapsedTime);
+	// Public functions
+	void		update(double deltaTime);
+	void		applyForce(double angle, double deltaTime);
+
  
 };
 

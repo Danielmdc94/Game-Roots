@@ -3,7 +3,7 @@
 Engine::Engine()
 {
 	window.create(VideoMode(WIN_W, WIN_H), NAME);
- 
+	window.setFramerateLimit(144);
 	// Load the background into the texture
 	// Be sure to scale this image to your screen size
 	backgroundTexture.loadFromFile(BACKGROUND_PATH);
@@ -30,7 +30,7 @@ void Engine::start()
 		deltaTime = clock.restart();
  
 		// Make a fraction from the delta time
-		float deltaTimeAsSeconds = deltaTime.asSeconds();
+		double deltaTimeAsSeconds = deltaTime.asSeconds();
 
 		// Manage events until queue is empty
 		while (window.pollEvent(event))
