@@ -16,37 +16,41 @@ private:
 
 	Vector2f	position;
 	Vector2f	velocity;
+	double		velocityMax;
+	double		velocityMin;
 	double		acceleration;
-	double		friction;
+	double		drag;
 	double		gravity;
-	double		maxSpeed;
 	
-
-	double		speed;
+		// Initialization
+	void		initVariables();
+	void		initTexture();
+	void		initSprite();
+	void		initPhysics();
 
 	// Public functions
 public:
-    //Player Hitbox
-    Hitbox  	hitbox;
-    Obstacle    ground;
-    Obstacle    shroom;
-    // Hitbox  	ground;
+
+	//Player Hitbox
+	Hitbox  	hitbox;
+	Obstacle    ground;
+	Obstacle    shroom;
+	// Hitbox  	ground;
  
 	// Player constructor
 	Player();
 	
 	// Accessors
-	Sprite		getSprite() { return sprite; }
-	double		getPositionX() { return position.x; }
-	double		getPositionY() { return position.y; }
-	double		getVelocityX() { return velocity.x; }
-	double		getVelocityY() { return velocity.y; }
- 
-	// Public functions
-	void		update(double deltaTime);
-	void		applyForce(double angle, double deltaTime);
+	Sprite		getSprite() { return this->sprite; }
+	double		getPositionX() { return this->position.x; }
+	double		getPositionY() { return this->position.y; }
+	double		getVelocityX() { return this->velocity.x; }
+	double		getVelocityY() { return this->velocity.y; }
 
- 
+	// Update functions
+	void		move(const float dirX, const float dirY);
+	void		update(double deltaTime);
+	void		updatePhysics();
 };
 
 #endif

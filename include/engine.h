@@ -7,6 +7,7 @@
 #include <SFML/System.hpp>
 #include <SFML/Network.hpp>
 
+#include <iostream>
 #include <sstream>
 
 #include "player.h"
@@ -23,35 +24,35 @@
 # define SHROOM             "assets/shroom_head.png"
  
 using namespace sf;
- 
+
 class Engine
 {
 private:
 
 	//Window
-    RenderWindow	window;
+	RenderWindow	window;
 	Event			event;
 
 	//Variables
-    Sprite			backgroundSprite;
-    Texture			backgroundTexture;
-    Font			font;
+	Sprite			backgroundSprite;
+	Texture			backgroundTexture;
+	Font			font;
 	Music			music;
 	Player			player;
 	Time			deltaTime;
 	Clock			clock;
 
-    // Private functions for internal use only
+	// Private functions for internal use only
 	void input(Event event);
-    void update(float DeltaTimetInSeconds);
-    void render();
+	void update(float DeltaTimetInSeconds);
+	void render();
  
 public:
-    // The Engine constructor and destructor
-    Engine();
+	// The Engine constructor and destructor
+	Engine();
  
-    // start will call all the private functions
-    void start();
+	// start will call all the private functions
+	void start();
 
 
 };

@@ -3,7 +3,7 @@
 Engine::Engine()
 {
 	window.create(VideoMode(WIN_W, WIN_H), NAME);
-	window.setFramerateLimit(144);
+	window.setFramerateLimit(60);
 	// Load the background into the texture
 	// Be sure to scale this image to your screen size
 	backgroundTexture.loadFromFile(BACKGROUND_PATH);
