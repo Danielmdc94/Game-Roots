@@ -4,26 +4,33 @@
 
 class	Hitbox
 {
-	private:
 
-	public:
-	//offset for the hitboxs, against the aqtual size of the sprite
-	int	offX;
-	int offY;
-	sf::Vector2f position;
-	//ectangular act as the the hit box
-	sf::RectangleShape box;
+private:
+
 	int	width;
 	int height;
+	sf::Vector2f position;
+	sf::Vector2f offset;
 
-	//the original setup for hitboxes
+public:
+
+	//Hitbox constructor
 	Hitbox();
 
-	//set the size and offset for the hitboxs
+	sf::RectangleShape rectangle;
+	
+
+	sf::Vector2f	getPosition() { return this->position; }
+	sf::Vector2f	getOffset() { return this->offset; }
+
+	int				getWidth() { return this->width; }
+	int				getHeight() { return this->height; }
+
+	//set the size and offset for the hitbox
 	void setSize(int size_x, int size_y, int offsetX, int offsetY);
 
 	//sets the position for the hitbox
-	void setcoord(sf::Vector2f position);
+	void setPosition(sf::Vector2f position);
 	
 
 };

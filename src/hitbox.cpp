@@ -1,27 +1,25 @@
 #include <SFML/Graphics.hpp>
 #include "../include/hitbox.h"
 
-void Hitbox::setcoord(sf::Vector2f position)
+Hitbox::Hitbox()
 {
-	position.x += offX; 
-	position.y += offY;
-	Hitbox::position = position;
-	box.setPosition(position); 
+	rectangle.setFillColor(sf::Color(0,255,0,100));
+	rectangle.setSize(sf::Vector2f(50, 50));
 }
 
+void Hitbox::setPosition(sf::Vector2f position)
+{
+	position.x += getOffset().x; 
+	position.y += getOffset().y;
+	Hitbox::position = position;
+	rectangle.setPosition(position); 
+}
 
 void Hitbox::setSize(int size_x, int size_y, int offsetX, int offsetY)
 {
-	offX = offsetX;
-	offY = offsetY;
+	offset.x = offsetX;
+	offset.y = offsetY;
 	width = size_x;
 	height = size_y;
-	box.setSize(sf::Vector2f(size_x, size_y));
+	rectangle.setSize(sf::Vector2f(size_x, size_y));
 }
-
-Hitbox::Hitbox()
-{
-	box.setFillColor(sf::Color(0,255,0,100));
-	box.setSize(sf::Vector2f(50, 50));
-}
-

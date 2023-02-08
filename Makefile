@@ -10,7 +10,7 @@ FILES = \
 	render.cpp \
 	update.cpp \
 	hitbox.cpp \
-	collision.cpp
+#	collision.cpp
 
 SRC_DIR = ./src
 SRC := $(patsubst %, $(SRC_DIR)/%, $(FILES))

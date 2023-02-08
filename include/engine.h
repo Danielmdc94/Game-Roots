@@ -16,7 +16,6 @@
 # define WIN_W 				1920
 # define WIN_H 				1080
 
-
 # define BACKGROUND_PATH    "assets/forest_background.jpg"
 # define MAINTHEME_PATH     "assets/forest_music.ogg"
 # define MAINFONT_PATH      "assets/tree_font.ttf"

@@ -28,12 +28,12 @@ void Engine::render()
 	text.setPosition(textPos.x, textPos.y);
 	window.draw(text);
     // window.draw(player.ground.hitbox.box);
-    window.draw(player.ground.hitbox.box);
+    window.draw(player.ground.hitbox.rectangle);
     window.draw(player.shroom.sprite);
-    window.draw(player.shroom.hitbox.box);
+    window.draw(player.shroom.hitbox.rectangle);
 
 	//Render player
-	window.draw(player.hitbox.box);
+	window.draw(player.getHitbox().rectangle);
 	window.draw(player.getSprite());
 
 

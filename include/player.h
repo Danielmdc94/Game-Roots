@@ -14,25 +14,27 @@ private:
 	Sprite		sprite;
 	Texture		texture;
 
-	Vector2f	position;
+	//Physics variables
+	//Vector2f	position;
 	Vector2f	velocity;
 	double		velocityMax;
 	double		velocityMin;
 	double		acceleration;
 	double		drag;
 	double		gravity;
+	//Player Hitbox
+	Hitbox  	hitbox;
 	
-		// Initialization
+	// Initialization
 	void		initVariables();
 	void		initTexture();
 	void		initSprite();
 	void		initPhysics();
+	void		initHitbox();
 
 	// Public functions
 public:
 
-	//Player Hitbox
-	Hitbox  	hitbox;
 	Obstacle    ground;
 	Obstacle    shroom;
 	// Hitbox  	ground;
@@ -42,15 +44,19 @@ public:
 	
 	// Accessors
 	Sprite		getSprite() { return this->sprite; }
-	double		getPositionX() { return this->position.x; }
-	double		getPositionY() { return this->position.y; }
-	double		getVelocityX() { return this->velocity.x; }
-	double		getVelocityY() { return this->velocity.y; }
+//	Vector2f	getPosition() { return this->position; }
+	Vector2f	getVelocityX() { return this->velocity; }
+	Hitbox		getHitbox() { return this->hitbox; }
+
+	// Modifiers
+	void		setPosition(const float x, const float y);
+	void		resetVelocity();
 
 	// Update functions
 	void		move(const float dirX, const float dirY);
 	void		update(double deltaTime);
 	void		updatePhysics();
+	void		updateCollision();
 };
 
 #endif
