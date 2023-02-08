@@ -113,14 +113,25 @@ void	Player::updateCollision()
 
 	// Player collision with screen bounds
 	if (hitbox.getPosition().x < 0)
+	{
 		this->sprite.setPosition(-hitbox.getOffset().x, this->sprite.getPosition().y);
+		resetVelocity();
+	}
 	else if (hitbox.getPosition().x + hitbox.getWidth() > WIN_W)
+	{
 		this->sprite.setPosition(WIN_W - (hitbox.getWidth() + hitbox.getOffset().x), this->sprite.getPosition().y);
+		resetVelocity();
+	}
 	if (hitbox.getPosition().y < 0)
+	{
 		this->sprite.setPosition(this->sprite.getPosition().x, -hitbox.getOffset().y);
+		resetVelocity();
+	}
 	else if (hitbox.getPosition().y + hitbox.getHeight() > WIN_H)
+	{
 		this->sprite.setPosition(this->sprite.getPosition().x, WIN_H - (hitbox.getHeight() + hitbox.getOffset().y));
-
+		resetVelocity();
+	}
 //	this->sprite.setPosition(ground.groundCheck(this, this->sprite.getPosition()));
 //	this->sprite.setPosition(shroom.CollisionCheck(this, this->sprite.getPosition()));
 }
