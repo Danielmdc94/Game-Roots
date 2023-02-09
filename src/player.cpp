@@ -23,7 +23,7 @@ Player::Player()
 	shroom.hitbox.rectangle.setFillColor(Color(0,255,0,100));
 	shroom.sprite.setScale(0.5, 0.5);
 	shroom.pos.x = 300;
-	shroom.pos.y = 500;
+	shroom.pos.y = 650;
 	shroom.hitbox.setSize(100, 30, 20, 0);
 	shroom.hitbox.setPosition(shroom.pos);
 	shroom.sprite.setPosition(shroom.pos);
@@ -172,6 +172,7 @@ void	Player::updateCollision()
 	{
 		this->sprite.setPosition(this->sprite.getPosition().x, this->tree.hitbox.getPosition().y - this->hitbox.getHeight() - this->hitbox.getOffset().y);
 		resetVelocity();
+		onGround = true;
 	}
 }
 
