@@ -13,14 +13,14 @@ Player::Player()
 	//adds ground to the game
 	ground.pos.x = 0;
 	ground.pos.y = WIN_H - 100;
-	ground.hitbox.getRectangle().setFillColor(Color::Green);
+	ground.hitbox.rectangle.setFillColor(Color::Green);
 	ground.hitbox.setSize(WIN_W, 100, 0, 0);
 	ground.hitbox.setPosition(ground.pos);
 	ground.hitbox.isTrigger = false;
 	// //adds the shroom
 	shroom.texture.loadFromFile(SHROOM);
 	shroom.sprite.setTexture(shroom.texture);
-	shroom.hitbox.getRectangle().setFillColor(Color::Blue);
+	shroom.hitbox.rectangle.setFillColor(Color::Green);
 	shroom.sprite.setScale(0.5, 0.5);
 	shroom.pos.x = 300;
 	shroom.pos.y = 500;
@@ -62,6 +62,7 @@ void Player::initPhysics()
 
 void Player::initHitbox()
 {
+	hitbox.rectangle.setFillColor(Color::Blue);
 	hitbox.setSize(75, 87, 92, 140);
 	hitbox.isTrigger = false;
 }
@@ -150,10 +151,11 @@ void	Player::updateCollision()
 	}
 	// Shroom trigger
 	if (this->hitbox.checkTrigger(shroom.hitbox))
-	{
-		shroom.hitbox.getRectangle().setFillColor(Color::Red);
-		std::cout << "trigger" << "\n";
-	}
+		shroom.hitbox.rectangle.setFillColor(Color::Red);
+	else
+		shroom.hitbox.rectangle.setFillColor(Color::Green);
+
+
 }
 
 // Updates player

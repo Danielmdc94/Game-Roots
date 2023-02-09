@@ -11,13 +11,13 @@ private:
 	int					height;
 	sf::Vector2f		position;
 	sf::Vector2f		offset;
-	sf::RectangleShape	rectangle;
 
 public:
 	// Hitbox constructor
 	Hitbox();
 
 	bool				isTrigger;
+	sf::RectangleShape	rectangle;
 	enum Bound
 	{
 		top,
@@ -29,7 +29,6 @@ public:
 	// Accesors
 	sf::Vector2f		getPosition() { return this->position; }
 	sf::Vector2f		getOffset() { return this->offset; }
-	sf::RectangleShape	getRectangle() { return this->rectangle; }
 	int					getWidth() { return this->width; }
 	int					getHeight() { return this->height; }
 

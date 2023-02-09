@@ -58,10 +58,10 @@ bool Hitbox::checkTrigger(Hitbox hitbox)
 {	
 	if (hitbox.isTrigger)
 	{
-		if (this->position.y < hitbox.getPosition().y + hitbox.getHeight()
-				|| this->position.y + this->height > hitbox.getPosition().y
-				|| this->position.x < hitbox.getPosition().x + hitbox.getWidth()
-				|| this->position.x + this->width > hitbox.getPosition().x)
+		if ((this->position.y < hitbox.getPosition().y + hitbox.getHeight()
+				&& this->position.y + this->height > hitbox.getPosition().y)
+				&& (this->position.x < hitbox.getPosition().x + hitbox.getWidth()
+				&& this->position.x + this->width > hitbox.getPosition().x))
 			return (1);
 	}
 	return (0);
