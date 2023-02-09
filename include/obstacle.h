@@ -11,13 +11,10 @@ class	Obstacle
 
 	public:
 	//obstacle specs
-    sf::Vector2f pos;
-	sf::Sprite sprite;
-    sf::Texture texture;
-	Hitbox	hitbox;
+    sf::Vector2f	pos;
+	sf::Sprite		sprite;
+    sf::Texture		texture;
+	Hitbox			hitbox;
 
-	sf::Vector2f groundCheck(Player *player, sf::Vector2f position);
-	sf::Vector2f CollisionCheck(Player *player, sf::Vector2f position);
- 
 };
 #endif

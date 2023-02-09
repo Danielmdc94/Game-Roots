@@ -4,11 +4,11 @@
 void Engine::render()
 {
 
-    // Rub out the last frame
-    window.clear(Color::Black);
+	// Rub out the last frame
+	window.clear(Color::Black);
 
-    // Draw the background
-    window.draw(backgroundSprite);
+	// Draw the background
+	window.draw(backgroundSprite);
 
 	// Render title text
 	Text		text;
@@ -27,13 +27,14 @@ void Engine::render()
 	textPos.y = window.getSize().y * 0.5 - 256;
 	text.setPosition(textPos.x, textPos.y);
 	window.draw(text);
-    // window.draw(player.ground.hitbox.box);
-    window.draw(player.ground.hitbox.rectangle);
+	//----
+	window.draw(player.ground.hitbox.getRectangle());
+	window.draw(player.ground.hitbox.getRectangle());
     window.draw(player.shroom.sprite);
-    window.draw(player.shroom.hitbox.rectangle);
+    window.draw(player.shroom.hitbox.getRectangle());
 
 	//Render player
-	window.draw(player.getHitbox().rectangle);
+	window.draw(player.getHitbox().getRectangle());
 	window.draw(player.getSprite());
 
 
@@ -49,6 +50,6 @@ void Engine::render()
 	water_text.setPosition(window.getSize().x - 100, 80);
 	window.draw(water_text);
 
-    // Show everything we have just drawn
-    window.display();
+	// Show everything we have just drawn
+	window.display();
 }

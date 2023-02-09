@@ -7,31 +7,39 @@ class	Hitbox
 
 private:
 
-	int	width;
-	int height;
-	sf::Vector2f position;
-	sf::Vector2f offset;
+	int					width;
+	int					height;
+	sf::Vector2f		position;
+	sf::Vector2f		offset;
+	sf::RectangleShape	rectangle;
 
 public:
-
-	//Hitbox constructor
+	// Hitbox constructor
 	Hitbox();
 
-	sf::RectangleShape rectangle;
-	
+	bool				isTrigger;
+	enum Bound
+	{
+		top,
+		bottom,
+		left,
+		right
+	};
 
-	sf::Vector2f	getPosition() { return this->position; }
-	sf::Vector2f	getOffset() { return this->offset; }
+	// Accesors
+	sf::Vector2f		getPosition() { return this->position; }
+	sf::Vector2f		getOffset() { return this->offset; }
+	sf::RectangleShape	getRectangle() { return this->rectangle; }
+	int					getWidth() { return this->width; }
+	int					getHeight() { return this->height; }
 
-	int				getWidth() { return this->width; }
-	int				getHeight() { return this->height; }
+	// Modifiers
+	void				setSize(int size_x, int size_y, int offsetX, int offsetY);
+	void				setPosition(sf::Vector2f position);
 
-	//set the size and offset for the hitbox
-	void setSize(int size_x, int size_y, int offsetX, int offsetY);
-
-	//sets the position for the hitbox
-	void setPosition(sf::Vector2f position);
-	
+	// Update functions
+	bool				checkCollision(Bound bound, Hitbox hitbox);
+	bool				checkTrigger(Hitbox hitbox);
 
 };
 

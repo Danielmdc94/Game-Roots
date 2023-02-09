@@ -17,7 +17,8 @@ private:
 	//Physics variables
 	//Vector2f	position;
 	Vector2f	velocity;
-	double		velocityMax;
+	double		velocityMaxX;
+	double		velocityMaxY;
 	double		velocityMin;
 	double		acceleration;
 	double		jumpAcceleration;
@@ -40,7 +41,6 @@ public:
 
 	Obstacle    ground;
 	Obstacle    shroom;
-	// Hitbox  	ground;
  
 	// Player constructor
 	Player();
