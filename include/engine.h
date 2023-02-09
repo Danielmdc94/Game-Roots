@@ -22,6 +22,7 @@
 # define PLAYER_PATH        "assets/player_transparent.png"
 # define SHROOM             "assets/shroom_head.png"
 # define TREE				"assets/tree.png"
+# define DROP				"assets/drop.png"
  
 using namespace sf;
 

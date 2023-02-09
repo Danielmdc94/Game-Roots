@@ -42,6 +42,8 @@ public:
 	Obstacle    ground;
 	Obstacle    shroom;
 	Obstacle	tree;
+	Obstacle	drop;
+	int 		waterAmount;
  
 	// Player constructor
 	Player();

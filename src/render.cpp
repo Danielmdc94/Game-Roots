@@ -27,13 +27,15 @@ void Engine::render()
 	textPos.y = window.getSize().y * 0.5 - 256;
 	text.setPosition(textPos.x, textPos.y);
 	window.draw(text);
-	//Render ground, shroom and tree
+	//Render ground, shroom, tree and drop
 	window.draw(player.ground.hitbox.rectangle);
 	window.draw(player.ground.hitbox.rectangle);
 	window.draw(player.shroom.sprite);
 	window.draw(player.shroom.hitbox.rectangle);
 	window.draw(player.tree.sprite);
 	window.draw(player.tree.hitbox.rectangle);
+	window.draw(player.drop.sprite);
+	window.draw(player.drop.hitbox.rectangle);
 
 	//Render player
 	window.draw(player.getHitbox().rectangle);
@@ -41,10 +43,9 @@ void Engine::render()
 
 
 	// Render resource text
-	int water_amount = 20;
 	Text water_text;
 	std::stringstream ss;
-	ss << water_amount;
+	ss << player.waterAmount;
 	water_text.setFont(font);
 	water_text.setString(ss.str());
 	water_text.setCharacterSize(50);

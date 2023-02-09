@@ -27,7 +27,7 @@ Player::Player()
 	shroom.hitbox.setSize(100, 30, 20, 0);
 	shroom.hitbox.setPosition(shroom.pos);
 	shroom.sprite.setPosition(shroom.pos);
-	ground.hitbox.isTrigger = true;
+	shroom.hitbox.isTrigger = true;
 	//adds the tree
 	tree.texture.loadFromFile(TREE);
 	tree.sprite.setTexture(tree.texture);
@@ -39,6 +39,18 @@ Player::Player()
 	tree.hitbox.setPosition(tree.pos);
 	tree.sprite.setPosition(tree.pos);
 	tree.hitbox.isTrigger = false;
+	// //adds the drop
+	drop.texture.loadFromFile(DROP);
+	drop.sprite.setTexture(drop.texture);
+	drop.hitbox.rectangle.setFillColor(Color(0,255,0,100));
+	drop.sprite.setScale(0.15, 0.15);
+	drop.pos.x = 1450;
+	drop.pos.y = 500;
+	drop.hitbox.setSize(50, 50, 0, 0);
+	drop.hitbox.setPosition(drop.pos);
+	drop.sprite.setPosition(drop.pos);
+	drop.hitbox.isTrigger = true;
+	this->waterAmount = 20;
 }
 
 void Player::initVariables()
@@ -174,6 +186,10 @@ void	Player::updateCollision()
 		resetVelocity();
 		onGround = true;
 	}
+
+	// Drop trigger
+	if (this->hitbox.checkTrigger(drop.hitbox))
+		this->waterAmount++;
 }
 
 // Updates player
