@@ -13,14 +13,14 @@ Player::Player()
 	//adds ground to the game
 	ground.pos.x = 0;
 	ground.pos.y = WIN_H - 100;
-	ground.hitbox.rectangle.setFillColor(Color::Green);
+	ground.hitbox.rectangle.setFillColor(Color(0,255,0,100));
 	ground.hitbox.setSize(WIN_W, 100, 0, 0);
 	ground.hitbox.setPosition(ground.pos);
 	ground.hitbox.isTrigger = false;
 	// //adds the shroom
 	shroom.texture.loadFromFile(SHROOM);
 	shroom.sprite.setTexture(shroom.texture);
-	shroom.hitbox.rectangle.setFillColor(Color::Green);
+	shroom.hitbox.rectangle.setFillColor(Color(0,255,0,100));
 	shroom.sprite.setScale(0.5, 0.5);
 	shroom.pos.x = 300;
 	shroom.pos.y = 500;
@@ -31,7 +31,7 @@ Player::Player()
 	//adds the tree
 	tree.texture.loadFromFile(TREE);
 	tree.sprite.setTexture(tree.texture);
-	tree.hitbox.rectangle.setFillColor(Color::Green);
+	tree.hitbox.rectangle.setFillColor(Color(0,255,0,100));
 	tree.sprite.setScale(1.f, 1.f);
 	tree.pos.x = 1200;
 	tree.pos.y = 500;
@@ -63,17 +63,17 @@ void Player::initSprite()
 void Player::initPhysics()
 {
 	this->velocityMaxX = 10.f;
-	this->velocityMaxY = 25.f;
+	this->velocityMaxY = 50.f;
 	this->velocityMin = 1.f;
-	this->acceleration = 2.f;
-	this->jumpAcceleration = 25.f;
+	this->acceleration = 3.f;
+	this->jumpAcceleration = 50.f;
 	this->drag = 0.9;
-	this->gravity = 3.f;
+	this->gravity = 2.f;
 }
 
 void Player::initHitbox()
 {
-	hitbox.rectangle.setFillColor(Color::Blue);
+	hitbox.rectangle.setFillColor(Color(0,255,255,100));
 	hitbox.setSize(75, 87, 92, 140);
 	hitbox.isTrigger = false;
 }
@@ -101,7 +101,8 @@ void	Player::move(const float dirX, const float dirY)
 
 void Player::jump()
 {
-	this->velocity.y += -1 * this->jumpAcceleration;
+	this->velocity.y += -3 * this->jumpAcceleration;
+	onGround = false;
 }
 
 void	Player::updatePhysics()
@@ -158,12 +159,13 @@ void	Player::updateCollision()
 	{
 		this->sprite.setPosition(this->sprite.getPosition().x, this->ground.hitbox.getPosition().y - this->hitbox.getHeight() - this->hitbox.getOffset().y);
 		resetVelocity();
+		onGround = true;
 	}
 	// Shroom trigger
 	if (this->hitbox.checkTrigger(shroom.hitbox))
-		shroom.hitbox.rectangle.setFillColor(Color::Red);
+		shroom.hitbox.rectangle.setFillColor(Color(255,0,0,100));
 	else
-		shroom.hitbox.rectangle.setFillColor(Color::Green);
+		shroom.hitbox.rectangle.setFillColor(Color(0,255,0,100));
 	
 	// Tree collision
 	if (this->hitbox.checkCollision(Hitbox::bottom, tree.hitbox))
@@ -171,7 +173,6 @@ void	Player::updateCollision()
 		this->sprite.setPosition(this->sprite.getPosition().x, this->tree.hitbox.getPosition().y - this->hitbox.getHeight() - this->hitbox.getOffset().y);
 		resetVelocity();
 	}
-
 }
 
 // Updates player
