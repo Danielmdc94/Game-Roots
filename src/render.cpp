@@ -27,14 +27,16 @@ void Engine::render()
 	textPos.y = window.getSize().y * 0.5 - 256;
 	text.setPosition(textPos.x, textPos.y);
 	window.draw(text);
-	//----
-	window.draw(player.ground.hitbox.getRectangle());
-	window.draw(player.ground.hitbox.getRectangle());
-    window.draw(player.shroom.sprite);
-    window.draw(player.shroom.hitbox.getRectangle());
+	//Render ground, shroom and tree
+	window.draw(player.ground.hitbox.rectangle);
+	window.draw(player.ground.hitbox.rectangle);
+	window.draw(player.shroom.sprite);
+	window.draw(player.shroom.hitbox.rectangle);
+	window.draw(player.tree.sprite);
+	window.draw(player.tree.hitbox.rectangle);
 
 	//Render player
-	window.draw(player.getHitbox().getRectangle());
+	window.draw(player.getHitbox().rectangle);
 	window.draw(player.getSprite());
 
 

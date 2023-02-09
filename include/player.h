@@ -41,6 +41,7 @@ public:
 
 	Obstacle    ground;
 	Obstacle    shroom;
+	Obstacle	tree;
  
 	// Player constructor
 	Player();

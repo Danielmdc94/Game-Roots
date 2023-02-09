@@ -28,6 +28,17 @@ Player::Player()
 	shroom.hitbox.setPosition(shroom.pos);
 	shroom.sprite.setPosition(shroom.pos);
 	ground.hitbox.isTrigger = true;
+	//adds the tree
+	tree.texture.loadFromFile(TREE);
+	tree.sprite.setTexture(tree.texture);
+	tree.hitbox.rectangle.setFillColor(Color::Green);
+	tree.sprite.setScale(1.f, 1.f);
+	tree.pos.x = 1200;
+	tree.pos.y = 500;
+	tree.hitbox.setSize(100, 200, 180, 300);
+	tree.hitbox.setPosition(tree.pos);
+	tree.sprite.setPosition(tree.pos);
+	tree.hitbox.isTrigger = false;
 }
 
 void Player::initVariables()
@@ -145,7 +156,6 @@ void	Player::updateCollision()
 	// Ground collision
 	if (this->hitbox.checkCollision(Hitbox::bottom, ground.hitbox))
 	{
-		std::cout << "collision" << "\n";
 		this->sprite.setPosition(this->sprite.getPosition().x, this->ground.hitbox.getPosition().y - this->hitbox.getHeight() - this->hitbox.getOffset().y);
 		resetVelocity();
 	}
@@ -154,7 +164,13 @@ void	Player::updateCollision()
 		shroom.hitbox.rectangle.setFillColor(Color::Red);
 	else
 		shroom.hitbox.rectangle.setFillColor(Color::Green);
-
+	
+	// Tree collision
+	if (this->hitbox.checkCollision(Hitbox::bottom, tree.hitbox))
+	{
+		this->sprite.setPosition(this->sprite.getPosition().x, this->tree.hitbox.getPosition().y - this->hitbox.getHeight() - this->hitbox.getOffset().y);
+		resetVelocity();
+	}
 
 }
 

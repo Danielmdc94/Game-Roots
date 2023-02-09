@@ -21,6 +21,7 @@
 # define MAINFONT_PATH      "assets/tree_font.ttf"
 # define PLAYER_PATH        "assets/player_transparent.png"
 # define SHROOM             "assets/shroom_head.png"
+# define TREE				"assets/tree.png"
  
 using namespace sf;
 
