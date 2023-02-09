@@ -51,9 +51,10 @@ void Player::initPhysics()
 {
 //	position.x = 500.f;
 //	position.y = 700.f;
-	this->velocityMax = 10.f;
+	this->velocityMax = 20.f;
 	this->velocityMin = 1.f;
 	this->acceleration = 2.f;
+	this->jumpAcceleration = 20.f;
 	this->drag = 0.9;
 	this->gravity = 3.f;
 }
@@ -82,6 +83,11 @@ void	Player::move(const float dirX, const float dirY)
 	// Limit velocity
 	if (std::abs(this->velocity.x) > this->velocityMax)
 		this->velocity.x = this->velocityMax * ((this->velocity.x < 0) ? -1.f : 1.f);
+}
+
+void Player::jump()
+{
+	this->velocity.y += -1 * this->jumpAcceleration;
 }
 
 void	Player::updatePhysics()
@@ -126,6 +132,7 @@ void	Player::updateCollision()
 	{
 		this->sprite.setPosition(this->sprite.getPosition().x, -hitbox.getOffset().y);
 		resetVelocity();
+		this->onGround = true;
 	}
 	else if (hitbox.getPosition().y + hitbox.getHeight() > WIN_H)
 	{
@@ -144,10 +151,8 @@ void Player::update(double deltaTime)
 		move(-1.f, 0);
 	if (Keyboard::isKeyPressed(Keyboard::D))
 		move(1.f, 0);
-	if (Keyboard::isKeyPressed(Keyboard::S))
-		move(0, 1);
-	if (Keyboard::isKeyPressed(Keyboard::W))
-		move(0, -1);
+	if (Keyboard::isKeyPressed(Keyboard::Space) && this->onGround)
+		jump();
 	updatePhysics();
 	updateCollision();
 	if (deltaTime)

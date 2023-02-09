@@ -20,10 +20,13 @@ private:
 	double		velocityMax;
 	double		velocityMin;
 	double		acceleration;
+	double		jumpAcceleration;
 	double		drag;
 	double		gravity;
 	//Player Hitbox
 	Hitbox  	hitbox;
+	//Is the player standing on something?
+	bool		onGround;
 	
 	// Initialization
 	void		initVariables();
@@ -54,6 +57,7 @@ public:
 
 	// Update functions
 	void		move(const float dirX, const float dirY);
+	void		jump();
 	void		update(double deltaTime);
 	void		updatePhysics();
 	void		updateCollision();
